@@ -1,0 +1,23 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xpengStudy/lean-cloud-config.git
+          default-label: master
+          search-paths:
+            - lean-cloud-config
+
+#  配置注册中心客户端信息
+eureka:
+  instance:
+    instance-id: config-center-3344
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
