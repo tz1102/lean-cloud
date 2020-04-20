@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atgg.leancloud.pay.dao.PayDao">
+
+
+
+    <insert id="create" parameterType="Pay" useGeneratedKeys="true" keyProperty="id">
+        insert  into  t_pay(serial) values (#{serial});
+    </insert>
+
+    <resultMap id="paySource" type="com.atgg.leancloud.common.entities.entity.Pay">
+        <id column="id" property="id"  javaType="LONG" jdbcType="BIGINT"/>
+        <id column="serial" property="serial"  javaType="STRING" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getPayById" parameterType="Long" resultMap="paySource">
+        select * from t_pay  where id = #{id};
+    </select>
+    
+
+</mapper>

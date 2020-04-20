@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <groupId>com.atgg.leancloud</groupId>
+  <artifactId>leancloud</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+
+  <modules>
+    <module>cloud-pay-8001</module>
+    <module>cloud-order-80</module>
+      <module>cloud-common</module>
+    <module>cloud-eureka-server7001</module>
+    <module>cloud-eureka-server7002</module>
+      <module>cloud-pay-8002</module>
+      <module>cloud-pay-8003</module>
+      <module>cloud-opengfeign-order-80</module>
+      <module>cloud-hystrix-pay8001</module>
+      <module>cloud-gateway-gateway9527</module>
+      <module>cloud-config-center3344</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+  </modules>
+
+
+  <!-- 统一jar 包管理-->
+  <properties>
+    <lombok.version>1.16.18</lombok.version>
+    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+    <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+    <spring-cloud.alibaba.version>2.2.0.RELEASE</spring-cloud.alibaba.version>
+    <mysql-connector.version>8.0.11</mysql-connector.version>
+    <mybatis-spring-boot.version>2.1.2</mybatis-spring-boot.version>
+    <druid-spring-boot.version>1.1.10</druid-spring-boot.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+
+  <!--
+
+
+    <dependencyManagement> : 版本管理，主要侧重于版本管理，一般用在父类中，用于对整个工程引用包进行统一的规定与约束
+                             只提供依赖版本管理，不提供实际引用，子类在继承父类时，可以不用写 version ，因为子类会x
+                             向上查找版本依赖
+    -->
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!--
+        springboot   spring cloud
+        依赖关系 可通过
+        https://start.spring.io/actuator/info
+        查看官方优选匹配框架
+      -->
+      <!--spring boot 2.2.5-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--spring cloud Hoxton.SR3-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--spring cloud alibaba -->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${spring-cloud.alibaba.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid-spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector.version}</version>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+
+
+  <!-- 热部署配置  -->
+  <build>
+
+    <finalName>cloud-lean</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <fork>true</fork>
+          <addResources>true</addResources>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
+
+</project>
