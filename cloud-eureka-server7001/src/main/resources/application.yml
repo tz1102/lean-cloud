@@ -1,7 +1,6 @@
 server:
   port: 7001
 
-
 eureka:
   instance:
     # eureka 服务端的实例名称,注册中心搭建集群需要相互注册

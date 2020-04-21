@@ -8,10 +8,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/xpengStudy/lean-cloud-config.git
+          uri: https://github.com/zhengsh/ssm-laboratory-config.git
           default-label: master
           search-paths:
-            - lean-cloud-config
+            - springcloud-config
 
 #  配置注册中心客户端信息
 eureka:

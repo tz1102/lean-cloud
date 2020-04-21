@@ -1,0 +1,42 @@
+server:
+  port: 8803
+spring:
+  application:
+    name: cloud-strame-consume8802
+  # 消费者 streame 配置
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input: # 通道名称
+          destination: studyExchange
+          context-type: application/json
+          binder: defaultRabbit
+          group: consumerA # 解决数据重复读取 所以分组  分组之后  数据默认是开启持久化
+
+
+
+
+
+# 微服务客户端 eureka 配置
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+
+
+
