@@ -27,6 +27,8 @@
       <module>cloud-config-center3355</module>
       <module>cloud-stream-rabbit-consumer8802</module>
       <module>cloud-stream-rabbit-consumer8803</module>
+      <module>cloudalibaba-nacos-server9001</module>
+    <module>cloudalibaba-nacos-consumer9002</module>
   </modules>
 
 
