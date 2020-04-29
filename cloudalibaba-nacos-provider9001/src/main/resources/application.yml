@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloudalibab-nacos-provider
+    name: cloudalibab-nacos-provider-service
   cloud:
     nacos:  # 配置 nacos 信息
       discovery:

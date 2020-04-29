@@ -13,12 +13,12 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${service-url.nacos-payment-service}")
-    private String serverURL;
+    /*@Value("${service-url.cloudalibab-nacos-provider-service}")
+    private String serverURL;*/
 
     @GetMapping("/consumer/payment/nacos/{id}")
     public String get(@PathVariable("id")String id){
-        return restTemplate.getForObject(serverURL + "/payment/nacos/" + id, String.class);
+        return restTemplate.getForObject("http://cloudalibab-nacos-provider-service" + "/payment/nacos/" + id, String.class);
     }
 
 }

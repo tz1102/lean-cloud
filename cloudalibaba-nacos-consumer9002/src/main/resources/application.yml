@@ -7,8 +7,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
+service-url: cloudalibab-nacos-provider-service
